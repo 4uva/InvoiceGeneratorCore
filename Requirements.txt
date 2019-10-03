@@ -1,0 +1,13 @@
+Develop a billing application. (Provide source code / project, database backup)
+
+Entries should be stored in the database (preferably on the MS SQL server) in the Invoice table (must have fields unique identifier, date, client, invoice amount)
+
+In the user interface (preferably C # WPF) implement the display of records from the database.
+
+-Must be able to add, modify, delete entries.
+
+-Display the amount of all invoices.
+
+-Search by name of client.
+
+connection string to the database and the ability to transfer to another machine for testing.

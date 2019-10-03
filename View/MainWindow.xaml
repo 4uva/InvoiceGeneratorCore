@@ -1,0 +1,26 @@
+﻿<Window x:Class="InvoiceGeneratorCore.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:view="clr-namespace:InvoiceGeneratorCore.View"
+        xmlns:vm="clr-namespace:InvoiceGeneratorCore.ViewModel"
+        d:DataContext="{d:DesignInstance vm:MainVM, IsDesignTimeCreatable=False}"
+        mc:Ignorable="d"
+        Title="Invoice Management" Height="450" Width="800">
+    <Grid Margin="5">
+        <view:InvoiceList/>
+        <Grid Background="#d0ffffff">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding CurrentlyEditedInvoice}" Value="{x:Null}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            <view:InvoiceEditor DataContext="{Binding CurrentlyEditedInvoice}"/>
+        </Grid>
+    </Grid>
+</Window>

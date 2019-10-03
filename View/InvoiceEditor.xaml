@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="InvoiceGeneratorCore.View.InvoiceEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:view="clr-namespace:InvoiceGeneratorCore.View"
+             xmlns:vm="clr-namespace:InvoiceGeneratorCore.ViewModel"
+             d:DataContext="{d:DesignInstance vm:InvoiceEditVM, IsDesignTimeCreatable=False}"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontWeight="Bold">Edit invoice</TextBlock>
+
+        <TextBlock Grid.Row="1" Grid.Column="0">Date:</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="0">Client:</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="0">Amount:</TextBlock>
+
+        <DatePicker Grid.Row="1" Grid.Column="2" SelectedDate="{Binding Edited.Date}"/>
+        <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Edited.Client}"/>
+        <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding Edited.Amount}"/>
+
+        <WrapPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="0,10">
+            <Button Command="{Binding OkCommand}" MinWidth="75" IsDefault="True" Margin="0,0,10,0">OK</Button>
+            <Button Command="{Binding CancelCommand}" MinWidth="75" IsCancel="True">Cancel</Button>
+        </WrapPanel>
+    </Grid>
+</UserControl>
